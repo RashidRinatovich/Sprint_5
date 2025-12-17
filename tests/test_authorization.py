@@ -27,12 +27,12 @@ class TestAuthorization:
         driver.find_element(*AuthPageLocators.PASSWORD_INPUT).send_keys(Person.password)
         driver.find_element(*AuthPageLocators.LOGIN_BUTTON).click()
         
-        order_button = WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 MainPageLocators.MAKE_ORDER_BUTTON
             )
         )
-        assert order_button.text == 'Оформить заказ'
+        assert driver.current_url == Urls.MAIN_PAGE_URL
         
     def test_enter_button_login_page(self, driver):
         
@@ -44,12 +44,12 @@ class TestAuthorization:
         driver.find_element(*AuthPageLocators.PASSWORD_INPUT).send_keys(Person.password)
         driver.find_element(*AuthPageLocators.LOGIN_BUTTON).click()
         
-        order_button = WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 MainPageLocators.MAKE_ORDER_BUTTON
             )
         )
-        assert order_button.text == 'Оформить заказ'
+        assert driver.current_url == Urls.MAIN_PAGE_URL
         
         
     def test_button_enter_password_recovery(self, driver):
@@ -61,9 +61,9 @@ class TestAuthorization:
         driver.find_element(*AuthPageLocators.PASSWORD_INPUT).send_keys(Person.password)
         driver.find_element(*AuthPageLocators.LOGIN_BUTTON).click()
         
-        order_button = WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 MainPageLocators.MAKE_ORDER_BUTTON
             )
         )
-        assert order_button.text == 'Оформить заказ'
+        assert driver.current_url == Urls.MAIN_PAGE_URL
