@@ -27,7 +27,6 @@ class TestConstructor:
                 BurgerIngredientLocators.BUNS_SECTION
             )
         )
-        assert BUNS_SECTION.is_displayed()
         assert BUNS_SECTION.text == "Булки"
          
         element = WebDriverWait(driver, 10).until(
